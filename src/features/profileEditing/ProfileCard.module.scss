@@ -1,0 +1,91 @@
+@use "@/shared/styles/global.scss" as *;
+
+.profileCard{
+  background-color: $skyblue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 246px;
+  height: 100%;
+  border-radius: 20px;
+  padding-left: 1.77vw;
+  padding-right: 0.9375vw;
+  padding-top: 0.9375vh;
+  padding-bottom: 0.9375vh;
+  .leftSide{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2.5vw;
+    align-items: center;
+    .profileInfo{
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 21px;
+      .nickName{
+        font-family: $montSemiBold;
+        font-size: 40px;
+        color: $white;
+
+      }
+      .description{
+        font-family: $montMedium;
+        font-size: 14px;
+        color: $white;
+      }
+      .infoContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-left: 1px solid $white;
+        padding-left: 12px;
+        font-family: $montMedium;
+        color: $white;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .rightSideEditing {
+    display: flex;
+    align-items: flex-start;
+  }
+  .rightSide{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 13.14vh;
+    .navIcons{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0.83vw;
+    }
+    .navIconsEditing{
+      gap: 0.83vw;
+    }
+    .idContainer{
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      border-radius: 16px;
+      background-color: $white;
+      opacity: 60%;
+      max-width: 162px;
+      width: 100%;
+      padding: 8px 16px;
+    }
+  }
+}
+.editableField {
+  padding-left: 10px;
+  border-radius: 10px;
+  font-family: $montMedium;
+  color: $white;
+  width: 100%;
+  box-sizing: border-box;
+}

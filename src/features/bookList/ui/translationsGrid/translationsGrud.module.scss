@@ -1,0 +1,19 @@
+@use "@/shared/styles/global.scss" as *;
+
+.translationsGrid {
+  width: 100%;
+}
+
+.sectionTitle {
+  font-family: $montSemiBold;
+  font-size: 40px;
+  font-weight: 600;
+  color: $blue;
+  padding-bottom: 32px;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;    
+}

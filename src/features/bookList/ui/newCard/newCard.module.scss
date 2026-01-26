@@ -1,0 +1,21 @@
+@use "@/shared/styles/global.scss" as *;
+
+.newCard {
+  max-width: 345px;
+  width: 100%;
+  min-height: 178px;
+  height: 100%;
+  border: 1px solid $skyblue;
+  border-radius: 10px;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover {
+    background: $paleBlue;
+  }
+}
+

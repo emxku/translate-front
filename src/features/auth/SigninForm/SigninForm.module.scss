@@ -1,0 +1,49 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+
+  font-family: 14px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin: 0;
+  padding: 4px 0;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.serverError {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 8px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.serverErrorMessage {
+  color: #c33;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+}

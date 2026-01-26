@@ -1,0 +1,77 @@
+@use "@/shared/styles/global.scss" as *;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: $white;
+  border-radius: 16px;
+  max-width: 530px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  .closeButton{
+    margin-left: 490px;
+    margin-top: 16px;
+    margin-right: 16px;
+  }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px 0 20px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.modalTitle {
+  display: flex;
+  font-family: $montSemiBold;
+  font-size: 40px;
+  font-weight: 600;
+  color: $blue;
+}
+
+.modalContent {
+  padding: 38px 32px 32px 32px;
+  font-family: $montMedium;
+  font-size: 14px;
+  color: $skyblue;
+}
+
+.titleInput {
+  width: 100%;
+}
+
+.modalFooter {
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.saveButton {
+  width: 100%;
+  color: $white;
+  font-family: $montMedium;
+  font-weight: 500;
+  font-size: 16px;
+}

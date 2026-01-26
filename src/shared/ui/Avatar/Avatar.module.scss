@@ -1,0 +1,51 @@
+@use "@/shared/styles/global.scss" as *;
+
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $white;
+
+  &.small {
+    width: 36px;
+    height: 36px;
+    .placeholder {
+      font-size: 9px;
+    }
+  }
+
+  &.medium{
+    width: 64px;
+    height: 64px;
+    .placeholder {
+      font-size: 16px;
+    }
+  }
+
+  &.large{
+    width: 182px;
+    height: 182px;
+    .placeholder {
+      font-size: 48px;
+    }
+  }
+
+  .avatarImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .placeholder {
+    color: $white;
+    font-family: $montSemiBold;
+    //font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+}

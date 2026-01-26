@@ -1,0 +1,133 @@
+@use "@/shared/styles/global.scss" as *;
+
+.container {
+  max-width: 1196px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .welcomeSection,
+  .authSection {
+    transition: all 0.3s ease;
+    width: 50%;
+    height: 600px;
+    border: 1px solid $blue;
+    padding: 0 auto;
+
+    .welcomeContent,
+    .authContent {
+      font-family: $montSemiBold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin: 80px 40px;
+      height: 100%;
+    }
+  }
+
+  // велком секция
+  .welcomeSection {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-right: none;
+
+    // актив
+    &.activeSection {
+      background-color: $white;
+
+      .welcomeTitle {
+        color: $blue;
+        font-size: 32px;
+      }
+
+      .welcomeButton {
+        background-color: $blue;
+        color: $white;
+      }
+
+      .welcomeContentBottom {
+        color: $blue;
+        .rememberMe{
+          display: flex;
+          flex-direction: row;
+          gap: 12px;
+          font-family: $montReg;
+          font-size: 16px;
+          color: $skyblue;
+          span{
+            text-decoration: underline;
+            text-underline-offset: 1px;
+          }
+        }
+      }
+    }
+
+    // пассив
+    &.inactiveSection {
+      background-color: $blue;
+
+      .welcomeTitle {
+        color: $white;
+        font-size: 32px;
+      }
+
+      .welcomeButton {
+        background-color: $white;
+        color: $blue;
+      }
+
+      .welcomeContentBottom {
+        color: $white;
+        display: none;
+      }
+    }
+
+    .welcomeContentBottom {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      font-size: 14px;
+    }
+  }
+
+  // рег секция
+  .authSection {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-left: none;
+
+    // актив
+    &.activeSection {
+      background-color: $white;
+      border-color: $blue;
+
+      .authTitle {
+        color: $blue;
+        font-size: 32px;
+      }
+
+      .authButton {
+        background-color: $blue;
+        color: $white;
+      }
+    }
+
+    // пассив
+    &.inactiveSection {
+      background-color: $blue;
+
+      .authTitle {
+        color: $white;
+        font-size: 32px;
+      }
+
+      .authButton {
+        background-color: $white;
+        color: $blue;
+      }
+    }
+  }
+}
