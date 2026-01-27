@@ -1,0 +1,33 @@
+@use "@/shared/styles/global.scss" as *;
+
+.typography {
+  line-height: 1.2;
+}
+
+.bold28 {
+  font-family: $montSemiBold;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.medium20 {
+  font-family: $montMedium;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.regular16 {
+  font-family: $montReg;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.regular12 {
+  font-family: $montReg;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+}
