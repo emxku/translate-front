@@ -1,9 +1,11 @@
 import { TranslationsGrid, useTranslations } from "@/features/bookList";
+import { useNavigate } from "react-router-dom";
 
 export const BookList = () => {
+  const navigate = useNavigate();
+
   const {
     translations,
-    handleCardClick,
     handleCardEdit,
     handleCreateNew,
     editingTranslation,
@@ -17,7 +19,7 @@ export const BookList = () => {
   return (
     <TranslationsGrid
       translations={translations}
-      onCardClick={handleCardClick}
+      onCardClick={(id) => navigate(`/chaptermanager/${id}`)}
       onCardEdit={handleCardEdit}
       onCreateNew={handleCreateNew}
       editingTranslation={editingTranslation}
