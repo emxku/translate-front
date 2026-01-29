@@ -1,8 +1,15 @@
+export interface Chapter {
+  id: number;
+  title: string;
+  order: number;
+}
+
 export interface Translation {
   id: number;
   title: string;
   description: string;
   currentChapter: number;
+  chapters: Chapter[];
 }
 
 export interface TranslationCardProps {

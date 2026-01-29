@@ -7,19 +7,29 @@ const initialTranslations: Translation[] = [
     id: 1,
     title: "Портрет Дориана Грея",
     description: "Вы остановились на 1 главе",
-    currentChapter: 1
+    currentChapter: 1,
+    chapters: [
+      { id: 101, title: "Глава 1", order: 1},
+      { id: 102, title: "Глава 2", order: 2},
+      { id: 103, title: "Глава 3", order: 3}
+    ]
   },
   {
     id: 2,
     title: "Денс, денс, денс",
     description: "Вы остановились на 1 главе ",
-    currentChapter: 1
+    currentChapter: 1,
+    chapters: [
+      { id: 201, title: "Глава 1", order: 1 },
+      { id: 201, title: "Глава 1", order: 1 }
+    ]
   },
   {
     id: 3,
     title: "Пикник у обочины",
     description: "Вы остановились на 1 главе ",
-    currentChapter: 1
+    currentChapter: 1,
+    chapters: [{ id: 301, title: "Глава 1", order: 1}]
   }
 ];
 
@@ -83,7 +93,8 @@ export const TranslationsProvider: React.FC<React.PropsWithChildren> = ({ childr
       id: Date.now(), // временный адишник, потом тут бэк будет
       title,
       description: "Вы остановились на 1 главе",
-      currentChapter: 1
+      currentChapter: 1,
+      chapters: []
     };
 
     setTranslations((prev) => [...prev, newTranslation]);
