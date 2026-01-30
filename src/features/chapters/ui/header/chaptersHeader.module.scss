@@ -1,0 +1,74 @@
+@use "@/shared/styles/global.scss" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.title {
+  font-family: $montSemiBold;
+  font-size: 32px;
+  color: $blue;
+}
+
+.participantsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.participantsLabel {
+  font-family: $montMedium;
+  font-size: 18px;
+  color: $blue;
+}
+
+.participantsRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-left: -10px;
+  border: 2px solid $white;
+  border-radius: 50%;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.addParticipantBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid $blue;
+  background: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
