@@ -1,0 +1,40 @@
+@use "@/shared/styles/global.scss" as *;
+
+.container {
+  margin-top: 32px;
+  background: $white;
+  border-radius: 6px;
+  padding: 20px;
+  border: 1px solid $blue;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  padding: 14px 16px;
+  border: 1px solid $blue;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: $montMedium;
+  font-size: 18px;
+  color: $blue;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.selected {
+  //border-color: darken($blue, 10%);
+  background: rgba(0, 0, 255, 0.05);
+}
+
+.footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,11 +1,16 @@
 import { useNavigate, useParams } from "react-router-dom";
 import cls from "./ChaptersPage.module.scss";
+import { useState } from "react";
 import { useTranslations } from "@/features/bookList";
 import { ChaptersHeader } from "@/features/chapters";
+import { ChaptersContainer } from "@/features/chapters";
 
 export const ChaptersPage = () => {
   const { translationId } = useParams<{ translationId: string}>();
   const { translations } = useTranslations();
+
+  const [selectedChapterId, setSelectedChapterId] = useState<number | null>(null);
+
 
   const navigate = useNavigate();
 
@@ -31,6 +36,15 @@ export const ChaptersPage = () => {
         onAddParticipant={() => console.log("add participant")}
         onFinishTranslation={() => console.log("finish translation")}
         isFinishDisabled={true}
+      />
+      <ChaptersContainer
+        chapters={translation.chapters}
+        selectedChapterId={selectedChapterId}
+        onSelectChapter={setSelectedChapterId}
+        onGoTranslate={() =>
+          selectedChapterId &&
+          navigate(`/translate/${translation.id}/${selectedChapterId}`)
+        }
       />
 
       {/* ниже будет контейнер глав */}
