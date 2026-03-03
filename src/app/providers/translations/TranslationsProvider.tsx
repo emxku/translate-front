@@ -21,7 +21,7 @@ const initialTranslations: Translation[] = [
     currentChapter: 1,
     chapters: [
       { id: 201, title: "Глава 1", order: 1 },
-      { id: 201, title: "Глава 1", order: 1 }
+      { id: 202, title: "Глава 2", order: 2 }
     ]
   },
   {

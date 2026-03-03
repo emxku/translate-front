@@ -1,0 +1,9 @@
+@use "@/shared/styles/global.scss" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12.44vw;
+  padding-right: 12.4vw;
+  padding-top: 9.5vh;
+}

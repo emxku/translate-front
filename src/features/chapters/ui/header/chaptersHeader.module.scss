@@ -3,19 +3,20 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
+  //align-items: flex-start;
+  //gap: 24px;
 }
 
 .left {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  align-items: flex-start;
+  gap: 32px;
 }
 
 .title {
   font-family: $montSemiBold;
-  font-size: 32px;
+  font-size: 40px;
   color: $blue;
 }
 
@@ -23,6 +24,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border: 1px solid $skyblue;
+  border-radius: 10px;
 }
 
 .participantsLabel {
@@ -33,8 +36,9 @@
 
 .participantsRow {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  //gap: 12px;
 }
 
 .avatars {
@@ -53,9 +57,9 @@
 }
 
 .addParticipantBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  width: 32px;
+  height: 35px;
+  //border-radius: 50%;
   border: 1px solid $blue;
   background: $white;
   display: flex;

@@ -30,8 +30,8 @@ export const ChaptersPage = () => {
       <ChaptersHeader
         title={translation.title}
         participants={[
-          { id: 1, name: "User 1" },
-          { id: 2, name: "User 2" }
+          { id: 1, name: "Vova" },
+          { id: 2, name: "Zoba" }
         ]}
         onAddParticipant={() => console.log("add participant")}
         onFinishTranslation={() => console.log("finish translation")}
