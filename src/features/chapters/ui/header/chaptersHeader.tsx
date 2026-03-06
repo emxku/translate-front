@@ -30,14 +30,15 @@ export const ChaptersHeader: React.FC<ChaptersHeaderProps> = ({
       <div className={cls.left}>
         <h1 className={cls.title}>{title}</h1>
         <div className={cls.participantsBlock}>
-          <div className={cls.participantsLabel}>Участвуют в переводе</div>
           <div className={cls.participantsRow}>
+            <div className={cls.participantsLabel}>Участвуют в переводе:</div>
             <div className={cls.avatars}>
-              {participants.map((p) => (
+              {/*{participants.map((p) => (
                 <Avatar key={p.id} src={p.avatarUrl} alt={p.name} className={cls.avatar} />
-              ))}
+              ))}*/}
             </div>
-            <button
+          </div>
+          <button
               className={cls.addParticipantBtn}
               onClick={onAddParticipant}
               type="button"
@@ -45,13 +46,13 @@ export const ChaptersHeader: React.FC<ChaptersHeaderProps> = ({
             >
               <Member />
             </button>
-          </div>
         </div>
       </div>
 
       <div className={cls.right}>
-        <Button onClick={onFinishTranslation} disabled={isFinishDisabled}>
-          Завершить перевод
+        <Button onClick={onFinishTranslation} disabled={isFinishDisabled} className={cls.finishButton}>
+          Завершить<br></br>
+          перевод
         </Button>
       </div>
     </div>

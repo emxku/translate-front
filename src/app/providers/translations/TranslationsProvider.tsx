@@ -48,6 +48,8 @@ type TranslationsContextValue = {
   handleCloseCreateModal: () => void;
 
   handleCloseModal: () => void;
+
+  createChapter: (translationId: number) => void;
 };
 
 const TranslationsContext = createContext<TranslationsContextValue | null>(null);
@@ -88,6 +90,28 @@ export const TranslationsProvider: React.FC<React.PropsWithChildren> = ({ childr
     setIsCreateModalOpen(true);
   };
 
+  const createChapter = (translationId: number) => {
+    setTranslations((prev) => {
+      return prev.map((translation) =>{
+        if (translation.id !== translationId){
+          return translation;
+        }
+        const newOrder = translation.chapters.length + 1;
+
+        const newChapter ={
+          id: Date.now(),
+          title: newOrder + "глава",
+          order: newOrder
+        };
+
+        return {
+          ...translation,
+          chapters: [...translation.chapters, newChapter]
+        };
+      });
+    });
+  };
+
   const handleCreateTranslation = (title: string) => {
     const newTranslation: Translation = {
       id: Date.now(), // временный адишник, потом тут бэк будет
@@ -120,7 +144,8 @@ export const TranslationsProvider: React.FC<React.PropsWithChildren> = ({ childr
       handleCreateNew,
       handleCreateTranslation,
       handleCloseCreateModal,
-      handleCloseModal
+      handleCloseModal,
+      createChapter
     }),
     [translations, isCreateModalOpen, editingTranslation]
   );

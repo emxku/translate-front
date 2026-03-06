@@ -2,19 +2,22 @@ import React from "react";
 import cls from "./ChaptersContainer.module.scss";
 import type { Chapter } from "@/features/bookList/model/types";
 import { Button } from "@/shared/ui/Button/Button";
+import { Plus } from "@/shared/assets/icons/Plus";
 
 type ChaptersContainerProps = {
   chapters: Chapter[];
   selectedChapterId: number | null;
   onSelectChapter: (id: number) => void;
   onGoTranslate: () => void;
+  onAddChapter: () => void
 };
 
 export const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
   chapters,
   selectedChapterId,
   onSelectChapter,
-  onGoTranslate
+  onGoTranslate,
+  onAddChapter
 }) => {
   return (
     <div className={cls.container}>
@@ -39,6 +42,9 @@ export const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
               </div>
             );
           })}
+        <div className={cls.addChapterButton} onClick={onAddChapter}>
+          <Plus/>
+        </div>
       </div>
 
       <div className={cls.footer}>
