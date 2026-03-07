@@ -1,3 +1,64 @@
+import { useNavigate, useParams } from "react-router-dom";
+import cls from "./ChaptersPage.module.scss";
+import { useState } from "react";
+import { useTranslations } from "@/features/bookList";
+import { ChaptersHeader } from "@/features/chapters";
+import { ChaptersContainer } from "@/features/chapters";
+
 export const ChaptersPage = () => {
-  return <div>ChaptersPage</div>;
+  const { translationId } = useParams<{ translationId: string}>();
+  const { translations, createChapter, updateChapterTitle, deleteChapter } = useTranslations();
+
+  const [selectedChapterId, setSelectedChapterId] = useState<number | null>(null);
+
+  const navigate = useNavigate();
+
+  const id = Number(translationId);
+  const translation = translations.find((t) => t.id === id);
+
+  if (!translationId || Number.isNaN(id)) {
+    return <div className={cls.wrapper}>Некорректный translationId в URL</div>
+  }
+
+  if(!translation) {
+    return <div className={cls.wrapper}>Перевод не найден (id: {id})</div>
+  }
+
+  return (
+    <div className={cls.wrapper}>
+      <ChaptersHeader
+        title={translation.title}
+        participants={[
+          { id: 1, name: "Vova" },
+          { id: 2, name: "Zoba" }
+        ]}
+        onAddParticipant={() => console.log("add participant")}
+        onFinishTranslation={() => console.log("finish translation")}
+        isFinishDisabled={true}
+      />
+      <ChaptersContainer
+        chapters={translation.chapters}
+        selectedChapterId={selectedChapterId}
+        onSelectChapter={setSelectedChapterId}
+        onGoTranslate={() =>
+          selectedChapterId &&
+          navigate(`/translate/${translation.id}/${selectedChapterId}`)
+        }
+        onAddChapter={() => createChapter(translation.id)}
+        onSaveChapterTitle={(chapterId, newTitle) =>
+          updateChapterTitle(translation.id, chapterId, newTitle)
+        }
+        onDeleteChapter={(chapterId) => {
+          deleteChapter(translation.id, chapterId);
+
+          if (selectedChapterId === chapterId) {
+            setSelectedChapterId(null);
+          }
+        }}
+      />
+
+      {/* ниже будет контейнер глав */}
+      {/* <ChaptersContainer ... /> */}
+    </div>
+  );
 };

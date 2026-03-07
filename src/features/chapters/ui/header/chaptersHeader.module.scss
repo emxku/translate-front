@@ -1,0 +1,85 @@
+@use "@/shared/styles/global.scss" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.title {
+  font-family: $montSemiBold;
+  font-size: 40px;
+  color: $blue;
+}
+
+.participantsBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.participantsLabel {
+  font-family: $montMedium;
+  font-size: 24px;
+  color: $blue;
+}
+
+.participantsRow {
+  border: 1px solid $skyblue;
+  border-radius: 10px;
+  max-height: 96px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px 32px;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-left: -10px;
+  border: 2px solid $white;
+  border-radius: 50%;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.addParticipantBtn {
+  padding: 32px 31px;
+  max-height: 96px;
+  border: 1px solid $blue;
+  border-radius: 10px;
+  background: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  .finishButton{
+    height: 96px;
+    background-color: $white;
+    color: $paleBlue;
+    border: 1px solid $skyblue;
+    padding: 24px;
+  }
+}
