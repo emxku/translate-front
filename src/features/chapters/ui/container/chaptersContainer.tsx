@@ -11,7 +11,8 @@ type ChaptersContainerProps = {
   onSelectChapter: (id: number) => void;
   onGoTranslate: () => void;
   onAddChapter: () => void;
-  onSaveChapterTitle: (chapterId: number, newTitle: string) => void
+  onSaveChapterTitle: (chapterId: number, newTitle: string) => void;
+  onDeleteChapter: (chapterId: number) => void;
 };
 
 export const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
@@ -20,7 +21,8 @@ export const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
   onSelectChapter,
   onGoTranslate,
   onAddChapter,
-  onSaveChapterTitle
+  onSaveChapterTitle,
+  onDeleteChapter
 }) => {
   return (
     <div className={cls.container}>
@@ -37,6 +39,7 @@ export const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
                 isSelected={isSelected}
                 onSelect={() => onSelectChapter(chapter.id)}
                 onSaveTitle={(newTitle) => onSaveChapterTitle(chapter.id, newTitle)}
+                onDelete={() => onDeleteChapter(chapter.id)}
               />
             );
           })}

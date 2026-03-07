@@ -7,7 +7,7 @@ import { ChaptersContainer } from "@/features/chapters";
 
 export const ChaptersPage = () => {
   const { translationId } = useParams<{ translationId: string}>();
-  const { translations, createChapter, updateChapterTitle } = useTranslations();
+  const { translations, createChapter, updateChapterTitle, deleteChapter } = useTranslations();
 
   const [selectedChapterId, setSelectedChapterId] = useState<number | null>(null);
 
@@ -48,6 +48,13 @@ export const ChaptersPage = () => {
         onSaveChapterTitle={(chapterId, newTitle) =>
           updateChapterTitle(translation.id, chapterId, newTitle)
         }
+        onDeleteChapter={(chapterId) => {
+          deleteChapter(translation.id, chapterId);
+
+          if (selectedChapterId === chapterId) {
+            setSelectedChapterId(null);
+          }
+        }}
       />
 
       {/* ниже будет контейнер глав */}

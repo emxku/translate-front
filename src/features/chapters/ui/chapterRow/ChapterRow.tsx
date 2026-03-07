@@ -4,19 +4,22 @@ import type { Chapter } from "@/features/bookList/model/types";
 import { Edit } from "@/shared/assets/icons/Edit";
 import { Save } from "@/shared/assets/icons/Save";
 import { Input } from "@/shared/ui/Input/Input";
+import { Delete } from "@/shared/assets/icons/Delete";
 
 type ChapterRowProps = {
   chapter: Chapter;
   isSelected: boolean;
   onSelect: () => void;
   onSaveTitle: (newTitle: string) => void;
+  onDelete: () => void;
 };
 
 export const ChapterRow: React.FC<ChapterRowProps> = ({
   chapter,
   isSelected,
   onSelect,
-  onSaveTitle
+  onSaveTitle,
+  onDelete
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(chapter.title);
@@ -59,6 +62,19 @@ export const ChapterRow: React.FC<ChapterRowProps> = ({
           >
             <Save/>
           </button>
+          <button
+            type="button"
+            className={cls.actionButton}
+            onClick={(e) => {
+              e.stopPropagation();
+
+              if (confirm("Удалить главу? Это будет иметь последствия.")) {
+                onDelete();
+              }
+            }}
+            >
+              <Delete/>
+            </button>
         </div>
       ) : (
         <div className={cls.viewMode}>

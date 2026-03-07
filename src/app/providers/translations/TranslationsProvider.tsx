@@ -52,6 +52,8 @@ type TranslationsContextValue = {
   createChapter: (translationId: number) => void;
 
   updateChapterTitle: (translationsId: number, chapterId: number, newTitle: string) => void;
+
+  deleteChapter: (translationId: number, chapterId: number) => void;
 };
 
 const TranslationsContext = createContext<TranslationsContextValue | null>(null);
@@ -102,7 +104,7 @@ export const TranslationsProvider: React.FC<React.PropsWithChildren> = ({ childr
 
         const newChapter ={
           id: Date.now(),
-          title: newOrder + "глава",
+          title: "Глава " + newOrder,
           order: newOrder
         };
 
@@ -113,6 +115,22 @@ export const TranslationsProvider: React.FC<React.PropsWithChildren> = ({ childr
       });
     });
   };
+
+  const deleteChapter = (translationId: number, chapterId: number) => {
+      setTranslations((prev) => {
+        return prev.map((translation) => {
+          if (translation.id !== translationId) {
+            return translation;
+          }
+          return {
+            ...translation,
+            chapters: translation.chapters.filter(
+              (chapter) => chapter.id !== chapterId
+            )
+          };
+        });
+      });
+    };
 
   const updateChapterTitle = (translationId: number, chapterId: number, newTitle: string) => {
     setTranslations((prev) => {
@@ -170,9 +188,10 @@ export const TranslationsProvider: React.FC<React.PropsWithChildren> = ({ childr
       handleCloseCreateModal,
       handleCloseModal,
       createChapter,
-      updateChapterTitle
+      updateChapterTitle,
+      deleteChapter
     }),
-    [translations, isCreateModalOpen, editingTranslation, updateChapterTitle]
+    [translations, isCreateModalOpen, editingTranslation, updateChapterTitle, deleteChapter]
   );
 
   return <TranslationsContext.Provider value={value}>{ children }</TranslationsContext.Provider>;
