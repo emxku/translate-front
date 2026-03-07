@@ -3,13 +3,15 @@ import cls from "./ChaptersContainer.module.scss";
 import type { Chapter } from "@/features/bookList/model/types";
 import { Button } from "@/shared/ui/Button/Button";
 import { Plus } from "@/shared/assets/icons/Plus";
+import { ChapterRow } from "@/features/chapters/ui/chapterRow";
 
 type ChaptersContainerProps = {
   chapters: Chapter[];
   selectedChapterId: number | null;
   onSelectChapter: (id: number) => void;
   onGoTranslate: () => void;
-  onAddChapter: () => void
+  onAddChapter: () => void;
+  onSaveChapterTitle: (chapterId: number, newTitle: string) => void
 };
 
 export const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
@@ -17,7 +19,8 @@ export const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
   selectedChapterId,
   onSelectChapter,
   onGoTranslate,
-  onAddChapter
+  onAddChapter,
+  onSaveChapterTitle
 }) => {
   return (
     <div className={cls.container}>
@@ -27,19 +30,14 @@ export const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
           .sort((a, b) => a.order - b.order)
           .map((chapter) => {
             const isSelected = chapter.id === selectedChapterId;
-
             return (
-              <div
+              <ChapterRow
                 key={chapter.id}
-                className={`${cls.row} ${isSelected ? cls.selected : ""}`}
-                onClick={() => onSelectChapter(chapter.id)}
-                role="button"
-                tabIndex={0}
-              >
-                <span className={cls.title}>
-                  {chapter.order} глава
-                </span>
-              </div>
+                chapter={chapter}
+                isSelected={isSelected}
+                onSelect={() => onSelectChapter(chapter.id)}
+                onSaveTitle={(newTitle) => onSaveChapterTitle(chapter.id, newTitle)}
+              />
             );
           })}
         <div className={cls.addChapterButton} onClick={onAddChapter}>

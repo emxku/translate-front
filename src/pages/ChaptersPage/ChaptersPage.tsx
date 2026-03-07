@@ -7,7 +7,7 @@ import { ChaptersContainer } from "@/features/chapters";
 
 export const ChaptersPage = () => {
   const { translationId } = useParams<{ translationId: string}>();
-  const { translations, createChapter } = useTranslations();
+  const { translations, createChapter, updateChapterTitle } = useTranslations();
 
   const [selectedChapterId, setSelectedChapterId] = useState<number | null>(null);
 
@@ -45,6 +45,9 @@ export const ChaptersPage = () => {
           navigate(`/translate/${translation.id}/${selectedChapterId}`)
         }
         onAddChapter={() => createChapter(translation.id)}
+        onSaveChapterTitle={(chapterId, newTitle) =>
+          updateChapterTitle(translation.id, chapterId, newTitle)
+        }
       />
 
       {/* ниже будет контейнер глав */}

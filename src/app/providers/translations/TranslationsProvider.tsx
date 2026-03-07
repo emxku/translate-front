@@ -50,6 +50,8 @@ type TranslationsContextValue = {
   handleCloseModal: () => void;
 
   createChapter: (translationId: number) => void;
+
+  updateChapterTitle: (translationsId: number, chapterId: number, newTitle: string) => void;
 };
 
 const TranslationsContext = createContext<TranslationsContextValue | null>(null);
@@ -112,6 +114,28 @@ export const TranslationsProvider: React.FC<React.PropsWithChildren> = ({ childr
     });
   };
 
+  const updateChapterTitle = (translationId: number, chapterId: number, newTitle: string) => {
+    setTranslations((prev) => {
+      return prev.map((translation) => {
+        if (translation.id !== translationId) {
+          return translation;
+        }
+        return {
+          ...translation,
+          chapters: translation.chapters.map((chapter) => {
+            if (chapter.id !== chapterId) {
+              return chapter;
+            }
+            return {
+              ...chapter,
+              title: newTitle
+            };
+          })
+        };
+      });
+    });
+  };
+
   const handleCreateTranslation = (title: string) => {
     const newTranslation: Translation = {
       id: Date.now(), // временный адишник, потом тут бэк будет
@@ -145,9 +169,10 @@ export const TranslationsProvider: React.FC<React.PropsWithChildren> = ({ childr
       handleCreateTranslation,
       handleCloseCreateModal,
       handleCloseModal,
-      createChapter
+      createChapter,
+      updateChapterTitle
     }),
-    [translations, isCreateModalOpen, editingTranslation]
+    [translations, isCreateModalOpen, editingTranslation, updateChapterTitle]
   );
 
   return <TranslationsContext.Provider value={value}>{ children }</TranslationsContext.Provider>;

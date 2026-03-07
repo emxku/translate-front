@@ -1,6 +1,6 @@
 import React from "react";
 import cls from "./chaptersHeader.module.scss";
-import { Avatar } from "@/shared/ui/Avatar";
+//import { Avatar } from "@/shared/ui/Avatar";
 import { Button } from "@/shared/ui/Button/Button";
 import { Member } from "@/shared/assets/icons/Member";
 
@@ -20,7 +20,7 @@ type ChaptersHeaderProps = {
 
 export const ChaptersHeader: React.FC<ChaptersHeaderProps> = ({
   title,
-  participants,
+  //participants,
   onAddParticipant,
   onFinishTranslation,
   isFinishDisabled = true
