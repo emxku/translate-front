@@ -1,4 +1,4 @@
-import { Auth } from "@/features/Auth/Auth";
+import { Auth } from "@/features/auth/Auth";
 // import { Logo } from "@/shared/assets/icons/Logo";
 import cls from "./SignPage.module.scss";
 

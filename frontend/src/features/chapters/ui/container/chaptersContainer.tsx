@@ -1,5 +1,5 @@
 import React from "react";
-import cls from "./ChaptersContainer.module.scss";
+import cls from "./chaptersContainer.module.scss";
 import type { Chapter } from "@/features/bookList/model/types";
 import { Button } from "@/shared/ui/Button/Button";
 import { Plus } from "@/shared/assets/icons/Plus";
