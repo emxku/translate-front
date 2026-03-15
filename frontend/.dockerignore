@@ -1,0 +1,42 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dependencies (installed in Docker)
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Documentation
+README.md
+*.md
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Tests
+coverage/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+__tests__/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Misc
+.env*
+.DS_Store
+*.log
+npm-debug.log*

@@ -1,0 +1,30 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build artifacts
+backend
+*.exe
+
+# Documentation
+README.md
+*.md
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Tests
+*_test.go
+_test/
+coverage.txt
+
+# CI/CD
+.github/
+.gitlab-ci.yml

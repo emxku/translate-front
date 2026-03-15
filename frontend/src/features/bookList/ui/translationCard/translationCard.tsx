@@ -35,7 +35,7 @@ export const TranslationCard: React.FC<TranslationCardProps> = ({ translation, o
       </div>
       <p className={cls.cardDescription}>{translation.description}</p>
       <div className={cls.cardFooter}>
-        <Button theme="regular" className={cls.continueButton}> 
+        <Button theme="regular" className={cls.continueButton} onClick={handleContinueClick}>
           Продолжить перевод
         </Button>
       </div>
