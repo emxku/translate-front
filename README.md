@@ -1,11 +1,148 @@
-React web application for manual book translators using modern best practices. Focus on the following structured features in a logical progression from user onboarding to core translation workflow:
+# Translate Platform Frontend
 
-1. **Registration/Login Page**: Implement secure user authentication with login/password, including form validation, error handling, and JWT-based sessions. Redirect to the main profile page upon successful login.
+Frontend-приложение для платформы перевода книг с поддержкой управления переводами, главами, заметками, глоссарием и профилем пользователя.
 
-2. **Profile - Main Page**: Display user details . Include options to view or create books, with role-based access.
+Проект разрабатывался как масштабируемое React-приложение с модульной архитектурой, типизированной работой с API и переиспользуемыми UI-компонентами.
 
-3. **Book Page**: For each book, show metadata (title, author, description) and a feature to add/remove translators via a searchable user list. Only authorized translators (added to the book) gain access permissions.
+## Стек
 
-4. **Chapter Page**: List chapters for a selected book in a paginated or accordion view, showing chapter titles, and links to the translation page.
+- React 19
+- TypeScript
+- Vite
+- React Router DOM
+- TanStack React Query
+- React Hook Form
+- Zod
+- Axios
+- SCSS Modules
 
-5. **Translation Page**: Split the selected chapter into editable sections (e.g., paragraphs). Provide side-by-side original and translation text fields for manual input, with save functionality, version history, and collaborative notes.
+## Основные возможности
+
+### Авторизация
+- Регистрация и вход пользователя
+- Сохранение состояния авторизации
+
+### Управление переводами
+- Создание и редактирование переводов
+- Просмотр списка переводов и глав
+- Управление данными перевода
+
+### Управление главами
+- Создание и удаление глав
+- Изменение порядка глав
+- Редактирование названий
+- Переход к редактору главы
+
+### Редактор перевода
+- Редактирование оригинального текста и перевода
+- Работа с параграфами
+- Комментирование параграфов
+- Работа с глоссарием терминов
+
+### Профиль пользователя
+- Редактирование профиля
+- Загрузка аватара
+- Просмотр статистики
+
+### Заметки
+- Создание, редактирование и удаление заметок
+
+## Архитектура
+
+Проект построен на модульной архитектуре с использованием подхода Feature-Sliced Design.
+
+src/
+├── api/
+├── app/
+├── features/
+├── pages/
+├── shared/
+└── types/
+
+### Основные архитектурные решения
+
+* Разделение бизнес-логики по feature-модулям
+* Переиспользуемый слой UI-компонентов
+* Отдельный слой работы с API и React Query хуками
+* Типизированные формы и валидация через Zod
+* Централизованная конфигурация приложения
+
+## Структура проекта
+
+src/
+├── api/
+│   ├── hooks/
+│   └── requests/
+├── app/
+│   └── providers/
+├── features/
+│   ├── auth/
+│   ├── bookList/
+│   ├── chapters/
+│   ├── notes/
+│   └── profileEditing/
+├── pages/
+├── shared/
+│   ├── assets/
+│   ├── config/
+│   ├── styles/
+│   └── ui/
+└── types/
+
+
+## Запуск проекта
+
+### Требования
+
+* Node.js 18+
+* npm
+
+### Установка зависимостей
+
+npm install
+
+### Запуск в режиме разработки
+
+npm run dev
+
+
+### Production build
+
+npm run build
+
+### Предпросмотр production-сборки
+
+npm run preview
+
+
+## Доступные команды
+
+| Команда         | Описание                       |
+| --------------- | ------------------------------ |
+| npm run dev     | Запуск dev-сервера             |
+| npm run build   | Сборка production-версии       |
+| npm run preview | Предпросмотр production-сборки |
+| npm run lint    | Проверка ESLint                |
+| npm run format  | Форматирование через Prettier  |
+
+## Качество кода
+
+Проект использует:
+
+* ESLint
+* Prettier
+* Husky
+* lint-staged
+
+## Технические особенности
+
+* Модульная frontend-архитектура
+* Типизированная работа с API
+* Переиспользуемая UI-система
+* Управление серверным состоянием через React Query
+* Валидация форм через React Hook Form + Zod
+* SCSS Modules для стилизации
+
+## Лицензия
+
+Частный проект.
